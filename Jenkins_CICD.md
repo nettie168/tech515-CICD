@@ -5,11 +5,11 @@
 - [How to use Jenkins](#how-to-use-jenkins)
   - [Log into Jenkins Server](#log-into-jenkins-server)
   - [Making a Jenkins Project](#making-a-jenkins-project)
-    - [1. Add item](#1-add-item)
-    - [2. Configure](#2-configure)
-    - [3. Build](#3-build)
-    - [4. Check outputs](#4-check-outputs)
-    - [Creating a Multistage pipeline (Chaining jobs/projects)](#creating-a-multistage-pipeline-chaining-jobsprojects)
+  - [1. Add item](#1-add-item)
+  - [2. Configure](#2-configure)
+  - [3. Build](#3-build)
+  - [4. Check outputs](#4-check-outputs)
+  - [Creating a Multistage pipeline (Chaining jobs/projects)](#creating-a-multistage-pipeline-chaining-jobsprojects)
 - [Building the Pipeline](#building-the-pipeline)
   - [1. Make the GitHub Repo](#1-make-the-github-repo)
   - [2. Secure GitHub repo with public key](#2-secure-github-repo-with-public-key)
@@ -53,14 +53,18 @@ See [README.md](./CICD/README.md#our-pipeline) for more detail on our pipeline p
 
 The order to make our CICD pipeline:
 
-- 1. Create the GitHub repo
-- 2. Secure the repo with the ssh key
+- 1.Create the GitHub repo
+- 2.Secure the repo with the ssh key
   
-- 3. Create Job 1, with Jenkins listening for web hook
-    - 3b. Create the web hook
-- 4. Create Job 2
-- 5. Create Job 3
+- 3.Create Job 1, with Jenkins listening for web hook
+- 3b.Create the web hook
+- 4.Create Job 2
+- 5.Create Job 3
   
+<br>
+<br>
+<hr>
+
 # How to use Jenkins
 
 This is the methodology for how to implement our CICD Pipeline using Jenkins.
@@ -85,15 +89,15 @@ Get an icon for it was successful, and a weather (general feel) for last number 
 green tick - good
 red cross - failed/went wrong
 
-### 1. Add item
+## 1. Add item
 
 `+ New Item`
 
-![alt text](./CICD/images/image-12.png)
+<img src="./CICD/images/image-12.png" width =600>
 
 `Enter name`
 
-![alt text](./CICD/images/image-13.png)
+<img src="./CICD/images/image-13.png" width = 600>
 
 Select `Freestyle project`
 
@@ -102,11 +106,12 @@ And `ok`
 > Note: Can duplicate with Copy from (make sure to have different name at top)
 > This will be used to create Jobs 2 and Job 3 further on
 
-### 2. Configure
+## 2. Configure
    
 Go to Configure
 
-![alt text](./CICD/images/image-39.png)
+<img src="./CICD/images/image-39.png" width = 600>
+
 
 Add the description
 
@@ -129,16 +134,17 @@ For this test, we're using
 
 Can click `configure` in menu to change details later
 
-### 3. Build 
+## 3. Build 
    
 `Build now`, manually triggers without a webhook. Helpful during this testing stage
 
 
-### 4. Check outputs
+## 4. Check outputs
 
-![alt text](./CICD/images/image-8.png)
+<img src="./CICD/images/image-8.png" width = 600>
 
-![alt text](./CICD/images/image-9.png)
+<img src="./CICD/images/image-9.png" width = 600>
+
 
 Console Output -> shows what you ran
 
@@ -146,7 +152,7 @@ Can see in real time as it's running on worker node
 
 And see the outputs as would be shown in a terminal.
 
-### Creating a Multistage pipeline (Chaining jobs/projects)
+## Creating a Multistage pipeline (Chaining jobs/projects)
 
 Project -> `post build actions`
 
@@ -154,19 +160,21 @@ Trigger only if build stable
 
 -> As we're only running next if successful
 
-...
+Add job to run after
 
 Take out space and comma, if running just one after
 
 Got to project
 Console
-![alt text](./CICD/images/image-10.png)
+<img src="./CICD/images/image-10.png" width = 600>
+
 
 
 Got to second job -> Console
 
 Shows that the build was triggered by the job ....
-![alt text](./CICD/images/image-11.png)
+<img src="./CICD/images/image-11.png" width = 600>
+
 
 <br>
 
@@ -210,7 +218,8 @@ go to your repo
 
 Got to individual repo settings
 
-![alt text](./CICD/images/image-14.png)
+<img src="./CICD/images/image-14.png" width = 600>
+
 
 `deploy keys`
 
@@ -227,7 +236,8 @@ tick allow write access so Jenkins can push changes and merge to github repo, wh
 
 Result: key that we added to repo
 
-![alt text](./CICD/images/image-15.png)
+<img src="./CICD/images/image-15.png" width = 600>
+
 
 ## 3. Job 1 - Test Code
 ### 1. Set up project
@@ -247,11 +257,12 @@ as before
 get from repo
 `https://github.com/nettie168/tech515-sparta-test-app-cicd.git`
 
-![alt text](./CICD/images/image-16.png)
+<img src="./CICD/images/image-16.png" width = 600>
+
 
 remove the .git replace with /
 
-![alt text](./CICD/images/image-40.png)
+<img src="./CICD/images/image-40.png" width = 600>
 
 
 ### 2. Set up Source Code Management
@@ -263,7 +274,8 @@ We are using ssh keys to authenticate, so need ssh endpoint (from same as before
 
 Without the key you'll see this error message:
 
-![alt text](./CICD/images/image-17.png)
+<img src="./CICD/images/image-17.png" width = 600>
+
 
 So next we need to add the private key so that Jenkins can have read/write access to the secure gitHub repo
 
@@ -273,7 +285,8 @@ Under `Credentials` click `add` then `Jenkins`
 
 Select the `kind` of credential as `ssh  Username with private key`
 
-![alt text](./CICD/images/image-18.png)
+<img src="./CICD/images/image-18.png" width = 600>
+
 
 Then put in the details for the key:
 
@@ -292,13 +305,14 @@ paste in private ssh key from the key pair used to secure GitHub repo
 
 You will still get red error until you select your key from the dropdown
 
-![alt text](./CICD/images/image-19.png)
+<img src="./CICD/images/image-19.png" width = 600>
+
 
 The error now goes away as it has the right private key
 
 set to branch to `main` or `dev`, whichever branch the pushes will be to
 
-![alt text](./CICD/images/image-46.png)
+<img src="./CICD/images/image-46.png" width = 600>
 
 > If you copy this project for a new job then you'd work on same set of files. Same SCM settings. Provided the jobs were in the same pipeline (and so running on the same worker node)
 
@@ -310,17 +324,20 @@ Now we set the Build Environment for Testing
 
 The Build will be triggered by a web hook
 
-![alt text](./CICD/images/image-41.png)
+<img src="./CICD/images/image-41.png" width = 600>
+
 
 #### Allowing node
 
-![alt text](./CICD/images/image-42.png)
+<img src="./CICD/images/image-42.png" width = 600>
+
 
 Ensure correct version of node
 
 #### Build Steps
 
-![alt text](./CICD/images/image-43.png)
+<img src="./CICD/images/image-43.png" width = 600>
+
 
 `execute shell`
 
@@ -341,14 +358,17 @@ so you need to
 
 Manually build, then the job will go into the Build Queue, and then the Build executor
 
-![alt text](./CICD/images/image-20.png)
+<img src="./CICD/images/image-20.png" width = 600>
+
 
 In Console you can see the results of the Unit Test:
-![alt text](./CICD/images/image-21.png)
+<img src="./CICD/images/image-21.png" width = 600>
+
 
 In Dashboard, shows green tick to mean it passed its unit test, and sunshine for weather (latest history of runs - good)
 
-![alt text](./CICD/images/image-22.png)
+<img src="./CICD/images/image-22.png" width = 600>
+
 
 ## 3b. Setting up the webhook
 
@@ -394,7 +414,7 @@ Check Dashboard
 Job will appear
 
 
-<img src="./CICD/images/image-24.png" width = 400>
+<img src="./CICD/images/image-24.png" width = 300>
 
 
 In Terminal, in git repo
@@ -434,7 +454,7 @@ Remove github hook as that is for job 1, job 2 will start after a successful job
 
 Go to `post build actions` select `Git Publisher` from drop down
 
-<img src="./CICD/images/image-32.png" width =300>
+<img src="./CICD/images/image-32.png" width =250>
 
 now save
 
@@ -460,14 +480,15 @@ select 2nd job (and remove ,)
 job 1 in queue, jenkins spins up worker node
 
 
-<img src="./CICD/images/image-27.png" width =300>
+<img src="./CICD/images/image-27.png" width =250>
 
 job 1 running
 
-<img src="./CICD/images/image-28.png" width = 300>
+<img src="./CICD/images/image-28.png" width = 250>
 
 Successful
-![alt text](./CICD/images/image-29.png)
+<img src="./CICD/images/image-29.png" width = 600>
+
 
 Console output for job 2 shows git changes
 
@@ -475,7 +496,8 @@ Console output for job 2 shows git changes
 So we check GitHub to ensure changes occured
 
 Result:
-![alt text](./CICD/images/image-33.png)
+<img src="./CICD/images/image-33.png" width = 600>
+
 
 They did!
 
@@ -506,7 +528,8 @@ The plan for deployment:
 
 #### 2. Set up Build Environment
 
-![alt text](./CICD/images/image-44.png)
+<img src="./CICD/images/image-44.png" width = 600>
+
 - Add private AWS ssh key to allow scp and ssh
 
 #### 3. Build Steps
@@ -575,7 +598,8 @@ rsync -r * ubuntu@54.229.33.85:~/repo/.
 ssh ubuntu@54.229.33.85 "cd repo/app && pm2 stop app.js || true && pm2 start app.js"
 ```
 
-![alt text](./CICD/images/image-45.png)
+<img src="./CICD/images/image-45.png" width = 600>
+
 
 ### 5. Test Deployment
 
