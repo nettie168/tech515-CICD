@@ -63,7 +63,6 @@ The order to make our CICD pipeline:
   
 <br>
 <br>
-<hr>
 
 # How to use Jenkins
 
@@ -93,11 +92,11 @@ red cross - failed/went wrong
 
 `+ New Item`
 
-<img src="./CICD/images/image-12.png" width =600>
+<img src="./CICD/images/image-12.png" width = 700>
 
 `Enter name`
 
-<img src="./CICD/images/image-13.png" width = 600>
+<img src="./CICD/images/image-13.png" width = 700>
 
 Select `Freestyle project`
 
@@ -110,7 +109,7 @@ And `ok`
    
 Go to Configure
 
-<img src="./CICD/images/image-39.png" width = 600>
+<img src="./CICD/images/image-39.png" width = 700>
 
 
 Add the description
@@ -220,7 +219,7 @@ go to your repo
 
 Got to individual repo settings
 
-<img src="./CICD/images/image-14.png" width = 600>
+<img src="./CICD/images/image-14.png" width = 700>
 
 
 `deploy keys`
@@ -238,7 +237,7 @@ tick allow write access so Jenkins can push changes and merge to github repo, wh
 
 Result: key that we added to repo
 
-<img src="./CICD/images/image-15.png" width = 600>
+<img src="./CICD/images/image-15.png" width = 700>
 
 
 ## 3. Job 1 - Test Code
@@ -259,7 +258,7 @@ as before
 get from repo
 `https://github.com/nettie168/tech515-sparta-test-app-cicd.git`
 
-<img src="./CICD/images/image-16.png" width = 600>
+<img src="./CICD/images/image-16.png" width = 700>
 
 
 remove the .git replace with /
@@ -276,7 +275,7 @@ We are using ssh keys to authenticate, so need ssh endpoint (from same as before
 
 Without the key you'll see this error message:
 
-<img src="./CICD/images/image-17.png" width = 600>
+<img src="./CICD/images/image-17.png" width = 400>
 
 
 So next we need to add the private key so that Jenkins can have read/write access to the secure gitHub repo
@@ -287,7 +286,7 @@ Under `Credentials` click `add` then `Jenkins`
 
 Select the `kind` of credential as `ssh  Username with private key`
 
-<img src="./CICD/images/image-18.png" width = 600>
+<img src="./CICD/images/image-18.png" width = 400>
 
 
 Then put in the details for the key:
@@ -307,7 +306,7 @@ paste in private ssh key from the key pair used to secure GitHub repo
 
 You will still get red error until you select your key from the dropdown
 
-<img src="./CICD/images/image-19.png" width = 600>
+<img src="./CICD/images/image-19.png" width = 400>
 
 
 The error now goes away as it has the right private key
