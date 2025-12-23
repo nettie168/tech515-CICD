@@ -166,13 +166,15 @@ Take out space and comma, if running just one after
 
 Got to project
 Console
+
 <img src="./CICD/images/image-10.png" width = 600>
 
 
 
 Got to second job -> Console
 
-Shows that the build was triggered by the job ....
+Shows that the build was triggered by the job
+
 <img src="./CICD/images/image-11.png" width = 600>
 
 
@@ -362,6 +364,7 @@ Manually build, then the job will go into the Build Queue, and then the Build ex
 
 
 In Console you can see the results of the Unit Test:
+
 <img src="./CICD/images/image-21.png" width = 600>
 
 
@@ -433,7 +436,9 @@ Check job runs
 <img src="./CICD/images/image-25.png" width = 300>
 
 Check job is successful
-![alt text](./CICD/images/image-26.png)
+
+<img src="./CICD/images/image-26.png" width = 300>
+
 
 So webhook works on dev branch!
 Webhook on dev branch: Done!
@@ -487,6 +492,7 @@ job 1 running
 <img src="./CICD/images/image-28.png" width = 250>
 
 Successful
+
 <img src="./CICD/images/image-29.png" width = 600>
 
 
@@ -496,6 +502,7 @@ Console output for job 2 shows git changes
 So we check GitHub to ensure changes occured
 
 Result:
+
 <img src="./CICD/images/image-33.png" width = 600>
 
 
